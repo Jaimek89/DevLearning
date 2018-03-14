@@ -1,0 +1,14 @@
+.container{
+    margin-bottom: 5%;
+}
+.topArrow{
+    width: 30px;
+    height: 30px;
+}
+.navbar{
+    color: gray;
+}
+body{
+    background-color: black;
+    color: grey;
+}
