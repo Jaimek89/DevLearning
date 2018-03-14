@@ -1,24 +1,18 @@
 import React, { Component } from "react"
 import "./App.scss"
+import NavBar from './components/NavBar'
+import HeroPanel from './components/HeroPanel'
 
 class App extends Component {
   render() {
+    console.log(NavBar)
     return (
       <div className="App">
-        <nav className="navbar navbar-dark bg-dark justify-content-between">
-          <a className="navbar-brand">DevLearning</a>
-          <form className="form-inline">
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Log In
-            </button>
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Sign Up
-            </button>
-          </form>
-        </nav>
+        <NavBar/>
+        <HeroPanel/>
       </div>
     )
   }
 }
 
-export default App;
+export default App
