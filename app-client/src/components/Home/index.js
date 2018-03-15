@@ -13,6 +13,6 @@ export default class Home extends Component {
         <HeroExplain />
         <HeroWhy />
       </div>
-    );
+    )
   }
 }

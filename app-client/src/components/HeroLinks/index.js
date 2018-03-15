@@ -1,34 +1,26 @@
 import React, { Component } from "react"
-import photoJS from "../../images/imageJS.png"
-import photoREACT from "../../images/imageREACT.png"
-import photoNODE from "../../images/imageNODE.png"
+
+import { LANGUAGES } from "../../../config"
 
 export default class HeroLinks extends Component {
   render() {
+    console.log(LANGUAGES)
     return (
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
-            <div className="p-3">
-              <a href="#/list_js">
-                <img src={photoJS} className="img-fluid" alt="Responsive image"/>
-              </a>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="p-3">
-              <a href="#/list_react">
-                <img src={photoREACT} className="img-fluid" alt="Responsive image"/>
-              </a>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="p-3">
-              <a href="#/list_node">
-                <img src={photoNODE} className="img-fluid" alt="Responsive image"/>
-              </a>
-            </div>
-          </div>
+          {
+            LANGUAGES.map(language => {
+              return (
+                <div className="col-md-4">
+                  <div className="p-3">
+                    <a href={`#${language.path}`}>
+                      <img src={language.imageUrl} className="img-fluid" alt="Responsive image"/>
+                    </a>
+                  </div>
+                </div>
+              )
+            })
+          }
         </div>
       </div>
     )
