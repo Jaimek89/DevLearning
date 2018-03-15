@@ -10,21 +10,21 @@ export default class HeroLinks extends Component {
         <div className="row">
           <div className="col-md-4">
             <div className="p-3">
-              <a href="#">
+              <a href="#/list_js">
                 <img src={photoJS} className="img-fluid" alt="Responsive image"/>
               </a>
             </div>
           </div>
           <div className="col-md-4">
             <div className="p-3">
-              <a href="#">
+              <a href="#/list_react">
                 <img src={photoREACT} className="img-fluid" alt="Responsive image"/>
               </a>
             </div>
           </div>
           <div className="col-md-4">
             <div className="p-3">
-              <a href="#">
+              <a href="#/list_node">
                 <img src={photoNODE} className="img-fluid" alt="Responsive image"/>
               </a>
             </div>
