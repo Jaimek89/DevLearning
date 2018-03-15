@@ -1,21 +1,16 @@
 import React, { Component } from "react"
 import "./App.scss"
 import NavBar from './components/NavBar'
-import HeroPanel from './components/HeroPanel'
-import HeroLinks from './components/HeroLinks'
-import HeroExplain from './components/HeroExplain'
-import HeroWhy from './components/HeroWhy'
 import Footer from './components/Footer'
+import Main from './components/Main'
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <NavBar/>
-        <HeroPanel/>
-        <HeroLinks/>
-        <HeroExplain/>
-        <HeroWhy/>
+        <Main/>
         <Footer/>
       </div>
     )
@@ -23,3 +18,5 @@ class App extends Component {
 }
 
 export default App
+
+        
