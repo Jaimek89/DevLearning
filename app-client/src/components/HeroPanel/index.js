@@ -4,7 +4,7 @@ import './index.scss'
 export default class HeroPanel extends Component {
   render() {
     return (
-      <div className="jumbotron">
+      <div className="jumbotron etiquetaa">
         <div className="container">
           <div className="row">
             <div className="col-sm-4" />
@@ -16,7 +16,7 @@ export default class HeroPanel extends Component {
             <div className="col-sm-4" />
           </div>
         </div>
-      </div>
+      </div>  
     )
   }
 }
