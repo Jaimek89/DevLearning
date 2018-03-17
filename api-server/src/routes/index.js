@@ -4,6 +4,6 @@ const { list } = require('./handlers')
 
 const router = express.Router()
 
-router.get('/courses', list)
+router.get('/courses/:id', list)
 
 module.exports = router

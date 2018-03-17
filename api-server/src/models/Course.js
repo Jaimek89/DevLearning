@@ -6,7 +6,7 @@ const ObjectId = Schema.ObjectId
 
 const Course = mongoose.model('courses', new Schema({
     title: String,
-    language: String,
+    languageId: String,
     price: Number,
     score: Number,
     teacher: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},

@@ -18,8 +18,9 @@ const api = {
         return rp(options)
     },
 
-    list() {
-        return this._call('get', 'courses', undefined)
+    list(languageId) {
+        const path = `courses/${languageId}`
+        return this._call('get', path, undefined)
     }
 }
 

@@ -14,11 +14,12 @@ export default class ListJS extends Component {
     api.protocol = "http";
     api.host = "localhost";
     api.port = "5000";
-    api.list().then(data => this.setState({ courses: data.data }));
+    api.list('1').then(data => {
+      this.setState({ courses: data.data })
+    })
   }
 
   render() {
-    console.log(this.state.course);
     return (
       <div className="jumbotron">
         <div className="container">

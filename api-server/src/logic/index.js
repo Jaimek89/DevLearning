@@ -2,7 +2,7 @@
 const Course = require('../models/Course')
 
 module.exports = {
-    list() {
-        return Course.find({})
+    list(id) {
+        return Course.find({'languageId':id})
     }
 }
