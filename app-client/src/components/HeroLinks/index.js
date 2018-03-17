@@ -4,7 +4,6 @@ import { LANGUAGES } from "../../../config"
 
 export default class HeroLinks extends Component {
   render() {
-    console.log(LANGUAGES)
     return (
       <div className="container">
         <div className="row">

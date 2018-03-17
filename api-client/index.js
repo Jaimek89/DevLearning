@@ -4,6 +4,7 @@ const api = {
     _baseUrl() {
         with (this) {
             return `${protocol}://${host}:${port}/api`
+            // return 'http://localhost:5000/api'
         }
     },
 
