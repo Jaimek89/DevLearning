@@ -11,7 +11,7 @@ export default class ListJS extends Component {
   }
 
   componentWillMount() {
-    api.protocol = "http";
+    api.protocol = "http"
     api.host = "localhost";
     api.port = "5000";
     api.list('1').then(data => {

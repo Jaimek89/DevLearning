@@ -6,4 +6,8 @@ const router = express.Router()
 
 router.get('/courses/:id', list)
 
+// router.post('/login', login)
+
+// router.post('/create', create)
+
 module.exports = router
