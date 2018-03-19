@@ -1,27 +1,31 @@
 import React, { Component } from "react";
 import api from "api-client";
-
-
+import {LANGUAGES} from '../../../config'
 export default class ListCourses extends Component {
   constructor() {
     super();
     this.state = {
+      language: '',
       courses: []
-    };
+    }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     api.protocol = "http";
     api.host = "localhost";
     api.port = "5000";
-    const language = this.props.language.language
+    const {language} = this.props.match.params
     api.list(language).then(data => {
-      // Averiguar como pasar esta id (que nos viene en el path de la ruta) probar: this.props.match.params.id
-      this.setState({ courses: data.data })
+      this.setState({ 
+        language: language,
+        courses: data.data 
+      })
     })
   }
 
   render() {
+    const { language } = this.state
+    const imageUrl = language ? LANGUAGES[language].imageUrl : ''
     return (
       <div className="jumbotron">
         <div className="container">
@@ -31,7 +35,7 @@ export default class ListCourses extends Component {
               <div className="p-3">
                 <a href="#">
                   <img
-                    src={this.props.language.imageUrl}
+                    src={imageUrl}
                     className="img-fluid"
                     alt="Responsive image"
                   />

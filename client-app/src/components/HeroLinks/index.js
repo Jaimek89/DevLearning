@@ -9,12 +9,12 @@ export default class HeroLinks extends Component {
       <div className="container">
         <div className="row">
           {
-            LANGUAGES.map(language => {
+            Object.keys(LANGUAGES).map(languageId => {
               return (
                 <div className="col-md-4">
                   <div className="p-3">
-                    <Link to ={`/courses/${language.language}`}>
-                      <img src={language.imageUrl} className="img-fluid" alt="Responsive image"/>
+                    <Link to ={`/courses/${languageId}`}>
+                      <img src={LANGUAGES[languageId].imageUrl} className="img-fluid" alt="Responsive image"/>
                     </Link>
                   </div>
                 </div>
