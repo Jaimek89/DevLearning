@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import photoJS from "../../images/imageJS.png";
 import api from "api-client";
+
 
 export default class ListCourses extends Component {
   constructor() {
@@ -14,7 +14,8 @@ export default class ListCourses extends Component {
     api.protocol = "http";
     api.host = "localhost";
     api.port = "5000";
-    api.list(params.id).then(data => {
+    const languageId = this.props.language.id
+    api.list(languageId).then(data => {
       // Averiguar como pasar esta id (que nos viene en el path de la ruta) probar: this.props.match.params.id
       this.setState({ courses: data.data })
     })
@@ -30,7 +31,7 @@ export default class ListCourses extends Component {
               <div className="p-3">
                 <a href="#">
                   <img
-                    src={photoJS}
+                    src={this.props.language.imageUrl}
                     className="img-fluid"
                     alt="Responsive image"
                   />
@@ -59,24 +60,6 @@ export default class ListCourses extends Component {
                       </tr>
                     );
                   })}
-                  <tr>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>67</td>
-                    <td>15</td>
-                    <td>
-                      <a href="#">+ Info</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Larry</td>
-                    <td>Bird</td>
-                    <td>99</td>
-                    <td>22</td>
-                    <td>
-                      <a href="#">+ Info</a>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>

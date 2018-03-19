@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Link } from "react-router-dom"
 
 import { LANGUAGES } from "../../../config"
 
@@ -12,9 +13,9 @@ export default class HeroLinks extends Component {
               return (
                 <div className="col-md-4">
                   <div className="p-3">
-                    <a href={`#${language.path}`}>
+                    <Link to ={`/courses/${language.id}`}>
                       <img src={language.imageUrl} className="img-fluid" alt="Responsive image"/>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               )
