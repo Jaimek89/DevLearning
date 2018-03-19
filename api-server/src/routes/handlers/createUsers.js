@@ -4,7 +4,7 @@ const logic = require('../../logic')
 module.exports = (req, res) => {
     const { body: { name, surname, email, username, password } } = req
 
-    logic.register(name, surname, email, username, password)
+    logic.createUsers(name, surname, email, username, password)
         .then(id => {
             res.json(success({ id }))
         })

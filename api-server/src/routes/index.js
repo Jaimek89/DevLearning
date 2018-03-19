@@ -1,14 +1,16 @@
 // TODO create router with routes (routes should call logic, each one)
 const express = require('express')
 const bodyParser = require('body-parser')
-const { list, create } = require('./handlers')
+const { listCourses, createUsers } = require('./handlers')
 
 const router = express.Router()
 
-router.get('/courses/:id', list)
+router.get('/courses/:id', listCourses)
 
 // router.post('/login', login)
 
-// router.post('users/create', create)
+const jsonBodyParser = bodyParser.json()
+
+router.post('users/create', jsonBodyParser, createUsers)
 
 module.exports = router

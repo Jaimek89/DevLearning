@@ -1,5 +1,7 @@
-const list = require('./list')
+const listCourses = require('./listCourses')
+const createUsers = require('./createUsers')
 
 module.exports = {
-    list
+    listCourses,
+    createUsers
 }

@@ -3,7 +3,7 @@ const logic = require('../../logic')
 
 module.exports = (req, res) => {
 
-    logic.list(req.params.id)
+    logic.listCourses(req.params.id)
         .then(courses => res.json( success(courses) ))
         .catch(err => res.json(fail(err.message)))
 }
