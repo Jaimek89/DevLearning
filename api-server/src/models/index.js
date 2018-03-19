@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-const { Schema, Schema: { ObjectId }} = mongoose
+const {Schema, Schema: { ObjectId }} = mongoose
 
-const User = new Schema ({
+const User = new Schema({
     name: {
         type: String,
         required: true
@@ -25,13 +25,14 @@ const User = new Schema ({
     }
 })
 
-const Course = new Schema ({
+
+const Course = new Schema({
     title: {
         type: String,
         required: true
     },
     language: {
-        trype: String,
+        type: String,
         required: true
     },
     price: {
@@ -39,8 +40,8 @@ const Course = new Schema ({
         required: true
     },
     score: Number,
-    teacher: {
-        type: ObjectId,
+    teacher: { 
+        type: ObjectId, 
         ref: 'User',
         required: true
     },
