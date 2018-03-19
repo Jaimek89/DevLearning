@@ -11,6 +11,6 @@ router.get('/courses/:id', listCourses)
 
 const jsonBodyParser = bodyParser.json()
 
-router.post('users/create', jsonBodyParser, createUsers)
+router.post('/users/create', jsonBodyParser, createUsers)
 
 module.exports = router
