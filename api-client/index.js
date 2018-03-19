@@ -21,8 +21,8 @@ const api = {
   /************************************COURSES***********************************/
 
   // List courses depending of the language (the filter is made by the server)
-  list(languageId) {
-    const path = `courses/${languageId}`;
+  list(language) {
+    const path = `courses/${language}`;
     return this._call("get", path, undefined);
   },
 

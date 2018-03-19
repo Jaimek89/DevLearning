@@ -14,8 +14,8 @@ export default class ListCourses extends Component {
     api.protocol = "http";
     api.host = "localhost";
     api.port = "5000";
-    const languageId = this.props.language.id
-    api.list(languageId).then(data => {
+    const language = this.props.language.language
+    api.list(language).then(data => {
       // Averiguar como pasar esta id (que nos viene en el path de la ruta) probar: this.props.match.params.id
       this.setState({ courses: data.data })
     })

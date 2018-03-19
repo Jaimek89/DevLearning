@@ -6,6 +6,7 @@ const logic = require('../src/logic')
 describe('logic', () => {
     before(done => {
         mongoose.connect('mongodb://localhost/devlearning-logic-test')
+        // mongoose.connect('mongodb://jaime:123@ds211309.mlab.com:11309/devlearning')
 
         const db = mongoose.connection
 

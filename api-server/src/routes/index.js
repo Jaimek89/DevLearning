@@ -8,6 +8,6 @@ const jsonBodyParser = bodyParser.json()
 
 router.post('/users', jsonBodyParser, createUser)
 
-router.get('/courses', listCoursesByLanguage)
+router.get('/courses/:language', listCoursesByLanguage)
 
 module.exports = router

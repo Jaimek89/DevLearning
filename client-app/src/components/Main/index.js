@@ -21,7 +21,7 @@ export default class Main extends Component {
             <Route exact path='/' component={Home}/>
             {
               LANGUAGES.map(language => (
-                <Route path={`/courses/${language.id}`} render={()=><ListCourses language={language}/>}/>
+                <Route path={`/courses/${language.language}`} render={()=><ListCourses language={language}/>}/>
               ))
             }
             {/* <Route path='/list_js' component={ListJS}/>

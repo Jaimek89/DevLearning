@@ -13,7 +13,7 @@ export default class HeroLinks extends Component {
               return (
                 <div className="col-md-4">
                   <div className="p-3">
-                    <Link to ={`/courses/${language.id}`}>
+                    <Link to ={`/courses/${language.language}`}>
                       <img src={language.imageUrl} className="img-fluid" alt="Responsive image"/>
                     </Link>
                   </div>
