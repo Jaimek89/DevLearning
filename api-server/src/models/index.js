@@ -42,8 +42,8 @@ const Course = new Schema({
     score: Number,
     teacher: { 
         type: ObjectId, 
-        ref: 'User'
-        // required: true
+        ref: 'User',
+        required: true
     },
     student: {
         type: ObjectId,
