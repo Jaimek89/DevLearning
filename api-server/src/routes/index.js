@@ -7,7 +7,8 @@ const {
     retrieveUser,
     updateUser,
     deleteUser,
-    listCoursesByLanguage
+    listCoursesByLanguage,
+    createCourse
 
     } = require('./handlers')
 
@@ -19,7 +20,7 @@ const jsonBodyParser = bodyParser.json()
 
 router.get('/users', listUsers)
 
-router.post('/users', jsonBodyParser, createUser)
+router.post('/user', jsonBodyParser, createUser)
 
 router.get('/user/:id', retrieveUser)
 
@@ -30,5 +31,7 @@ router.delete('/user/:id', jsonBodyParser, deleteUser)
 /*****************Courses************/
 
 router.get('/courses/:language', listCoursesByLanguage)
+
+router.post('/course', jsonBodyParser, createCourse)
 
 module.exports = router

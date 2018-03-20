@@ -4,6 +4,8 @@ const validate = require('./validate')
 
 const logic = {
 
+/***********************Users Logic*********************/
+
     //It will create a user
     createUser(name, surname, email, username, password) {
         return Promise.resolve()
@@ -80,9 +82,23 @@ const logic = {
             })
     },
 
+    /***********************Courses Logic*********************/
+
     //It will list all courses from the selected language
     listCoursesByLanguage(language) {
         return Course.find({ language })
+    },
+
+    //It will create a course
+    createCourse(title, language, price, score, teacher) {
+
+        return Promise.resolve()
+            .then(() => {
+                validate({ title, language, price, score, teacher })
+
+                return Course.create({ title, language, price, score, teacher })
+            })
+            .then(({ _id }) => _id)
     }
 }
 
