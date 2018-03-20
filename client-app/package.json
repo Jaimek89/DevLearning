@@ -14,9 +14,14 @@
     "start": "parcel public/index.html"
   },
   "devDependencies": {
-    "parcel-bundler": "1.6.2",
+    "@s-ui/lint": "^2.9.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
-    "node-sass": "^4.7.2"
-  }
+    "node-sass": "^4.7.2",
+    "parcel-bundler": "1.6.2"
+  },
+  "eslintConfig": {
+    "extends": ["./node_modules/@s-ui/lint/eslintrc.js"]
+  },
+  "sasslintConfig": "./node_modules/@s-ui/lint/sass-lint.yml"
 }

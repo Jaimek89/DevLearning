@@ -8,7 +8,9 @@ const {
     updateUser,
     deleteUser,
     listCoursesByLanguage,
-    createCourse
+    createCourse,
+    retrieveCourse,
+    deleteCourse
 
     } = require('./handlers')
 
@@ -33,5 +35,9 @@ router.delete('/user/:id', jsonBodyParser, deleteUser)
 router.get('/courses/:language', listCoursesByLanguage)
 
 router.post('/course', jsonBodyParser, createCourse)
+
+router.get('/course/:id', retrieveCourse)
+
+router.delete('/course/:id', deleteCourse)
 
 module.exports = router

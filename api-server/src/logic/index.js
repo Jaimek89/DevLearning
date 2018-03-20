@@ -99,7 +99,40 @@ const logic = {
                 return Course.create({ title, language, price, score, teacher })
             })
             .then(({ _id }) => _id)
-    }
+    },
+
+        //It will list one course
+        retrieveCourse(_id) {
+        
+            return Promise.resolve()
+                .then(() => {
+                    
+                    validate({ _id })
+    
+                    return Course.findOne({ _id })
+                })
+                .then(course => {
+                    if (!course) throw Error('user does not exist')
+    
+                    return course
+                })
+        },
+
+        //It will delete a course by id
+        deleteCourse(_id) {
+
+            return Promise.resolve()
+                .then(() => {
+                    validate({ _id })
+
+                    return Course.findOne({ _id })
+                })
+                .then(course => {
+                    if (!course) throw Error('course does not exists')
+
+                    return Course.deleteOne({ _id })
+                })
+        }
 }
 
 module.exports = logic
