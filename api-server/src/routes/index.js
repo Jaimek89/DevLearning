@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const {
 
+    login,
     listUsers, 
     createUser,
     retrieveUser,
@@ -16,8 +17,30 @@ const {
     } = require('./handlers')
 
 const router = express.Router()
-
 const jsonBodyParser = bodyParser.json()
+
+/*****************Adding LogIn with token************/
+
+const jwt = require('jsonwebtoken')
+const secret = process.env.JWT_SECRET
+
+function jwtValidate(req, res, next) {
+    const auth = req.get('authorization')
+
+    try {
+        const token = auth.split(' ')[1]
+
+        jwt.verify(token, secret)
+
+        next()
+    } catch(err) {
+        res.json(fail('invalid token'))
+    }
+}
+
+/*****************LogIn************/
+
+router.post('/login', jsonBodyParser, login)
 
 /*****************Users************/
 

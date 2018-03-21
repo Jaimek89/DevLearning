@@ -1,3 +1,4 @@
+const login = require('./login')
 const listUsers = require('./listUsers')
 const createUser = require('./createUser')
 const retrieveUser = require('./retrieveUser')
@@ -10,6 +11,7 @@ const retrieveCourse = require('./retrieveCourse')
 const deleteCourse = require('./deleteCourse')
 
 module.exports = {
+    login,
     listUsers,
     createUser,
     retrieveUser,

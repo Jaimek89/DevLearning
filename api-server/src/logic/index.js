@@ -3,6 +3,22 @@ const validate = require('./validate')
 
 const logic = {
 
+/***********************Log In*********************/
+
+    login(username, password) {
+        return Promise.resolve()
+            .then(() => {
+                validate({ username, password })
+
+                return User.findOne({ username, password })
+            })
+            .then(user => {
+                if (!user) throw Error('username and/or password wrong')
+
+                return true
+            })
+    },
+
 /***********************Users Logic*********************/
 
     //It will create a user
