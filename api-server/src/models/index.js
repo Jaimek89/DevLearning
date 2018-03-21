@@ -39,7 +39,10 @@ const Course = new Schema({
         type: Number,
         required: true
     },
-    score: Number,
+    score: {
+        type: Number,
+        default: 80
+    },
     teacher: { 
         type: ObjectId, 
         ref: 'User',

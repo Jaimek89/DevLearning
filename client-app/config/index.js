@@ -1,5 +1,5 @@
 const LANGUAGES = {
-  js: {
+  javascript: {
     name: 'JavaScript',
     imageUrl: 'https://sg.com.mx/sites/default/files/images/js.png'
   },

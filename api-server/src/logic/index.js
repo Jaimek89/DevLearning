@@ -1,4 +1,3 @@
-// TODO all logic here
 const { User, Course } = require('../models')
 const validate = require('./validate')
 
@@ -23,7 +22,6 @@ const logic = {
     },
 
     //It will list all users
-
     listUsers() {
         return User.find({}, { _id: 1, name: 1, surname: 1, email: 1, username: 1 })
     },
@@ -90,13 +88,13 @@ const logic = {
     },
 
     //It will create a course
-    createCourse(title, language, price, score, teacher) {
+    createCourse(title, language, price, teacher) {
 
         return Promise.resolve()
             .then(() => {
-                validate({ title, language, price, score, teacher })
+                validate({ title, language, price, teacher })
 
-                return Course.create({ title, language, price, score, teacher })
+                return Course.create({ title, language, price, teacher })
             })
             .then(({ _id }) => _id)
     },

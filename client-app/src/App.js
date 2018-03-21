@@ -4,7 +4,7 @@ import './App.scss'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import Main from './components/Main'
-import RegisterCourse from './components/RegisterCourse'
+// import RegisterCourse from './components/RegisterCourse'
 
 import { HashRouter } from 'react-router-dom'
 
@@ -16,7 +16,6 @@ class App extends Component {
           <NavBar />
           <Main />
           <Footer />
-          <RegisterCourse />
         </div>
       </HashRouter>
     )

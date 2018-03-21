@@ -1,29 +1,44 @@
 import React, { Component } from 'react'
 
+import api from '../../services/api'
+
 export default class RegisterCourse extends Component {
   constructor () {
     super()
     this.state = {
       title: '',
       language: '',
-      price: ''
+      price: '',
+      teacher: ''
     }
   }
 
-  keepInputTitle (e) {
+  keepInputTitle = e => {
     this.setState({ title: e.target.value })
   }
-  keepInputLanguage (e) {
+  keepInputLanguage = e => {
     this.setState({ language: e.target.value })
   }
-  keepInputPrice (e) {
+  keepInputPrice = e => {
     this.setState({ price: e.target.value })
   }
+  keepInputTeacher = e => {
+    this.setState({ teacher: e.target.value })
+  }
 
-  // search() {
-  //   if (this.state.title && this.state.language && this.state.price)
-  //     api.login(name, surname, email, username, password);
-  // }
+  createCourse = e => {
+    e.preventDefault()
+    api.createCourse(
+      this.state.title,
+      this.state.language,
+      this.state.price,
+      this.state.teacher
+    )
+    this.setState({ title: '' })
+    this.setState({ language: '' })
+    this.setState({ price: '' })
+    this.setState({ teacher: '' })
+  }
 
   render () {
     return (
@@ -32,7 +47,7 @@ export default class RegisterCourse extends Component {
           <div className='row'>
             <div className='col-sm-4' />
             <div className='col-sm-4 text-center'>
-              <form className='form-signin'>
+              <form className='form-signin' onSubmit={this.createCourse}>
                 <h1 className='h3 mb-3 font-weight-normal'>Course Register</h1>
                 <input
                   type='text'
@@ -41,6 +56,8 @@ export default class RegisterCourse extends Component {
                   placeholder='Title'
                   required=''
                   autoFocus=''
+                  onChange={this.keepInputTitle}
+                  value={this.state.title}
                 />
                 <input
                   type='text'
@@ -48,6 +65,8 @@ export default class RegisterCourse extends Component {
                   className='form-control'
                   placeholder='Language'
                   required=''
+                  onChange={this.keepInputLanguage}
+                  value={this.state.language}
                 />
                 <input
                   type='text'
@@ -55,11 +74,19 @@ export default class RegisterCourse extends Component {
                   className='form-control'
                   placeholder='Price'
                   required=''
+                  onChange={this.keepInputPrice}
+                  value={this.state.price}
                 />
-                <button
-                  className='btn btn-lg btn-primary btn-block'
-                  type='submit'
-                >
+                <input
+                  type='text'
+                  id='inputPrice'
+                  className='form-control'
+                  placeholder='Teacher'
+                  required=''
+                  onChange={this.keepInputTeacher}
+                  value={this.state.teacher}
+                />
+                <button className='btn btn-lg btn-primary btn-block'>
                   Regist the course
                 </button>
               </form>
