@@ -4,6 +4,7 @@ const retrieveUser = require('./retrieveUser')
 const updateUser = require('./updateUser')
 const deleteUser = require('./deleteUser')
 const listCoursesByLanguage = require('./listCoursesByLanguage')
+const listCoursesByTeacher = require('./listCoursesByTeacher')
 const createCourse = require('./createCourse')
 const retrieveCourse = require('./retrieveCourse')
 const deleteCourse = require('./deleteCourse')
@@ -15,6 +16,7 @@ module.exports = {
     updateUser,
     deleteUser,
     listCoursesByLanguage,
+    listCoursesByTeacher,
     createCourse,
     retrieveCourse,
     deleteCourse

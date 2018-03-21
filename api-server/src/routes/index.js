@@ -8,6 +8,7 @@ const {
     updateUser,
     deleteUser,
     listCoursesByLanguage,
+    listCoursesByTeacher,
     createCourse,
     retrieveCourse,
     deleteCourse
@@ -33,6 +34,8 @@ router.delete('/user/:id', jsonBodyParser, deleteUser)
 /*****************Courses************/
 
 router.get('/courses/:language', listCoursesByLanguage)
+
+router.get('/courses/teacher/:teacher', listCoursesByTeacher)
 
 router.post('/course', jsonBodyParser, createCourse)
 

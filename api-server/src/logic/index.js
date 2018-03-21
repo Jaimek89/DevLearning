@@ -87,6 +87,11 @@ const logic = {
         return Course.find({ language })
     },
 
+    //It will list all courses from the selected teacher
+    listCoursesByTeacher(teacher) {
+        return Course.find({ teacher })
+    },
+
     //It will create a course
     createCourse(title, language, price, teacher) {
 

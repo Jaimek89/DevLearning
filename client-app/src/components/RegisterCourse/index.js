@@ -79,7 +79,7 @@ export default class RegisterCourse extends Component {
                 />
                 <input
                   type='text'
-                  id='inputPrice'
+                  id='inputTeacher'
                   className='form-control'
                   placeholder='Teacher'
                   required=''

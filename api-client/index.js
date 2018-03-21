@@ -3,8 +3,8 @@ const rp = require("request-promise")
 const api_client = {
   _baseUrl() {
     with (this) {
-      // return `${protocol}://${host}:${port}/api`
-      return 'http://localhost:5000/api'
+      return `${protocol}://${host}:${port}/api`
+      // return 'http://localhost:5000/api'
     }
   },
 
