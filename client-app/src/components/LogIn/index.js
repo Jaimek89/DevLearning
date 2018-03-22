@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-// import api from 'api-client'
+import api from '../../services/api'
+import storage from '../../services/storage'
 
 export default class LogIn extends Component {
   state = {
@@ -8,23 +9,27 @@ export default class LogIn extends Component {
     password: ''
   }
 
-  keepInput (e) {
+  keepInputUsername = e => {
     this.setState({ username: e.target.value })
   }
-  keepInputPass (e) {
+  keepInputPassword = e => {
     this.setState({ password: e.target.value })
   }
 
-  handleSubmit = e => {
+  login = e => {
     e.preventDefault()
-    this.search()
-  }
+    api.login(this.state.username, this.state.password).then(result => {
+      if (result.status === 'OK') {
+        console.log('logeado!!')
 
-  // search () {
-  //   if (this.state.username && this.state.password) {
-  //     api.login(username, password)
-  //   }
-  // }
+        storage.setToken(result.data.token)
+      } else {
+        console.log('wrong')
+      }
+    })
+    this.setState({ username: '' })
+    this.setState({ password: '' })
+  }
 
   render () {
     return (
@@ -33,7 +38,7 @@ export default class LogIn extends Component {
           <div className='row'>
             <div className='col-sm-4' />
             <div className='col-sm-4 text-center'>
-              <form onSubmit={this.handleSubmit}>
+              <form onSubmit={this.login}>
                 <h1 className='h3 mb-3 font-weight-normal'>Log In</h1>
                 <input
                   type='text'
@@ -41,7 +46,7 @@ export default class LogIn extends Component {
                   className='form-control'
                   placeholder='Username'
                   required
-                  onChange={this.keepInput}
+                  onChange={this.keepInputUsername}
                   value={this.state.username}
                 />
                 <input
@@ -50,13 +55,10 @@ export default class LogIn extends Component {
                   className='form-control'
                   placeholder='Password'
                   required
-                  onChange={this.keepInputPass}
+                  onChange={this.keepInputPassword}
                   value={this.state.password}
                 />
-                <button
-                  className='btn btn-lg btn-primary btn-block'
-                  type='submit'
-                >
+                <button className='btn btn-lg btn-primary btn-block'>
                   Log In
                 </button>
               </form>

@@ -40,7 +40,7 @@ export default class Register extends Component {
       this.state.email,
       this.state.username,
       this.state.password
-    )
+    ).then().catch()
     this.setState({ name: '' })
     this.setState({ surname: '' })
     this.setState({ email: '' })

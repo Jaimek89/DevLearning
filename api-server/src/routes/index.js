@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const { success, fail } = require('./handlers/api-utils')
 const {
 
     login,
@@ -44,15 +45,15 @@ router.post('/login', jsonBodyParser, login)
 
 /*****************Users************/
 
-router.get('/users', listUsers)
+router.get('/users', jwtValidate, listUsers)
 
 router.post('/user', jsonBodyParser, createUser)
 
-router.get('/user/:id', retrieveUser)
+router.get('/user/:id', jwtValidate, retrieveUser)
 
-router.put('/user/:id', jsonBodyParser, updateUser)
+router.put('/user/:id', [jsonBodyParser, jwtValidate], updateUser)
 
-router.delete('/user/:id', jsonBodyParser, deleteUser)
+router.delete('/user/:id', [jsonBodyParser, jwtValidate], deleteUser)
 
 /*****************Courses************/
 
@@ -60,10 +61,10 @@ router.get('/courses/:language', listCoursesByLanguage)
 
 router.get('/courses/teacher/:teacher', listCoursesByTeacher)
 
-router.post('/course', jsonBodyParser, createCourse)
+router.post('/course', [jsonBodyParser, jwtValidate], createCourse)
 
 router.get('/course/:id', retrieveCourse)
 
-router.delete('/course/:id', deleteCourse)
+router.delete('/course/:id', [jsonBodyParser, jwtValidate], deleteCourse)
 
 module.exports = router
