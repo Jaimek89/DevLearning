@@ -11,18 +11,25 @@ export default class NavBar extends Component {
           <Link to='/'>
             <a className='navbar-brand'>DevLearning</a>
           </Link>
-          <form className='form-inline'>
-            <Link to='/login'>
-              <button className='btn btn-outline-success' type='submit'>
-                Log In
+          {this.props.logged ? (
+            <Link to='/'>
+              <button
+                className='btn btn-outline-success'
+                onClick={() => this.props.setLogged(false)}
+              >
+                Log Out
               </button>
             </Link>
-            <Link to='/register'>
-              <button className='btn btn-outline-success' type='submit'>
-                Sign Up
-              </button>
-            </Link>
-          </form>
+          ) : (
+            <form className='form-inline'>
+              <Link to='/login'>
+                <button className='btn btn-outline-success'>Log In</button>
+              </Link>
+              <Link to='/register'>
+                <button className='btn btn-outline-success'>Sign Up</button>
+              </Link>
+            </form>
+          )}
         </nav>
       </div>
     )

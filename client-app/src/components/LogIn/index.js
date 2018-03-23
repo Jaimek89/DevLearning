@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
+import swal from 'sweetalert2/dist/sweetalert2.all.min.js'
+
+import { Redirect } from 'react-router'
 
 import api from '../../services/api'
 import storage from '../../services/storage'
+
+import PropTypes from 'prop-types'
 
 export default class LogIn extends Component {
   state = {
@@ -20,11 +25,19 @@ export default class LogIn extends Component {
     e.preventDefault()
     api.login(this.state.username, this.state.password).then(result => {
       if (result.status === 'OK') {
-        console.log('logeado!!')
-
+        swal({
+          type: 'success',
+          title: 'Success!',
+          text: 'Logged In!'
+        })
         storage.setToken(result.data.token)
+        this.props.setLogged(true)
       } else {
-        console.log('wrong')
+        swal({
+          type: 'error',
+          title: 'Oops...',
+          text: result.error
+        })
       }
     })
     this.setState({ username: '' })
@@ -66,6 +79,7 @@ export default class LogIn extends Component {
             <div className='col-sm-4' />
           </div>
         </div>
+        {this.props.logged ? <Redirect to='/' /> : undefined}
       </div>
     )
   }

@@ -16,7 +16,15 @@ export default class Main extends Component {
         <div>
           <Route exact path='/' component={Home} />
           <Route path={'/courses/:language'} component={ListCourses} />
-          <Route path='/login' component={LogIn} />
+          <Route
+            path='/login'
+            render={() => (
+              <LogIn
+                setLogged={this.props.setLogged}
+                logged={this.props.logged}
+              />
+            )}
+          />
           <Route path='/register' component={Register} />
           <Route path='/course_register' component={RegisterCourse} />
         </div>

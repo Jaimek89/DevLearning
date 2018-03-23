@@ -16,6 +16,11 @@ export default class Register extends Component {
     }
   }
 
+  //   InputValue = (e) => {
+  //     let prop = e.target.name
+  //     this.setState({ [prop]: e.target.value })
+  // }
+
   keepInputName = e => {
     this.setState({ name: e.target.value })
   }
@@ -34,13 +39,16 @@ export default class Register extends Component {
 
   createUser = e => {
     e.preventDefault()
-    api.createUser(
-      this.state.name,
-      this.state.surname,
-      this.state.email,
-      this.state.username,
-      this.state.password
-    ).then().catch()
+    api
+      .createUser(
+        this.state.name,
+        this.state.surname,
+        this.state.email,
+        this.state.username,
+        this.state.password
+      )
+      .then()
+      .catch()
     this.setState({ name: '' })
     this.setState({ surname: '' })
     this.setState({ email: '' })
