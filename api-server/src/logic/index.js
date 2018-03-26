@@ -15,7 +15,7 @@ const logic = {
             .then(user => {
                 if (!user) throw Error('username and/or password wrong')
 
-                return true
+                return user
             })
     },
 

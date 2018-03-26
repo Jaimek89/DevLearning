@@ -2,9 +2,9 @@ const { success, fail } = require('./api-utils')
 const logic = require('../../logic')
 
 module.exports = (req, res) => {
-    const { params: { id } } = req
-    
-    logic.retrieveUser(id)
+    const {idUser} = req.tokenDecrypt
+
+    logic.retrieveUser(idUser)
         .then(user => {
             res.json(success(user))
         })

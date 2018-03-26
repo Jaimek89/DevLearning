@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import Home from '../Home'
-
-import LogIn from '../LogIn'
-import Register from '../Register'
-import RegisterCourse from '../RegisterCourse'
-
+import PropTypes from 'prop-types'
 import { Route } from 'react-router-dom'
 
+import Home from '../Home'
+import LogIn from '../LogIn'
+import Register from '../Register'
+import UserPage from '../UserPage'
 import ListCourses from '../ListCourses'
 
 export default class Main extends Component {
@@ -26,9 +25,14 @@ export default class Main extends Component {
             )}
           />
           <Route path='/register' component={Register} />
-          <Route path='/course_register' component={RegisterCourse} />
+          <Route path='/user_page' component={UserPage} />
         </div>
       </div>
     )
   }
+}
+
+Main.propTypes = {
+  setLogged: PropTypes.boolean.isRequired,
+  logged: PropTypes.boolean.isRequired
 }

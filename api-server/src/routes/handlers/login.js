@@ -10,10 +10,10 @@ module.exports = (req, res) => {
     const { body: { username, password } } = req
 
     logic.login(username, password)
-        .then(() => {
-            const token = jwt.sign({ username }, secret, { expiresIn })
-
-            res.json(success({ token }))
+        .then(user => {
+            const token = jwt.sign({ idUser: user._id }, secret, { expiresIn })
+            const name= user.name
+            res.json(success({ token, name }))
         })
         .catch(err => {
             res.json(fail(err.message))

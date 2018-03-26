@@ -84,3 +84,8 @@ export default class LogIn extends Component {
     )
   }
 }
+
+LogIn.propTypes = {
+  setLogged: PropTypes.boolean.isRequired,
+  logged: PropTypes.boolean.isRequired
+}

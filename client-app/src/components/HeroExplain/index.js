@@ -14,17 +14,29 @@ export default class HeroExplain extends Component {
           </div>
           <div className='row'>
             <div className='col-md-4'>
-              <p>Insert an image????</p>
+              <img
+                src='https://image.flaticon.com/icons/svg/755/755180.svg'
+                className='img-fluid'
+                alt='Responsive image'
+              />
               <h5 className='display-5'>1. Choose a subject!</h5>
               <p>Choose the subject where you need to improve.</p>
             </div>
             <div className='col-md-4'>
-              <p>Insert an image????</p>
+              <img
+                src='https://www.italki.com/static/images/homepage/hp-icon1.png'
+                className='img-fluid'
+                alt='Responsive image'
+              />
               <h5 className='display-5'>2. Choose a teacher!</h5>
               <p>Choose the best teacher based on their valuations.</p>
             </div>
             <div className='col-md-4'>
-              <p>Insert an image????</p>
+              <img
+                src='https://www.italki.com/static/images/homepage/hp-icon3.png'
+                className='img-fluid'
+                alt='Responsive image'
+              />
               <h5 className='display-5'>3. Connect!</h5>
               <p>Take your lesson on Skype or other video chat software.</p>
             </div>

@@ -17,7 +17,7 @@ const api_client = {
 
     if (body) options.body = body
 
-    if (token) options.headers = {authorization: `Bearer:${token}`}
+    if (token) options.headers = {authorization: `Bearer ${token}`}
 
     return rp(options)
   },
@@ -42,8 +42,8 @@ const api_client = {
   },
 
   //It will list one user
-  retrieveUser(token, id) {
-    return this._call('get', `user/${id}`, undefined, token)
+  retrieveUser(token) {
+    return this._call('get', 'user', undefined, token)
   },
 
   //It will update a user, the user will can change the email introducing correctly the username and password
@@ -61,6 +61,11 @@ const api_client = {
   //It will list all courses from the selected language (the filter is made by the server)
   list(language) {
     return this._call("get", `courses/${language}`)
+  },
+
+  // It will list all courses from the selected teacher (the filter is made by the server)
+  listCoursesByTeacher (id) {
+    return this._call("get", `courses/${id}`)
   },
 
   //It will create a course

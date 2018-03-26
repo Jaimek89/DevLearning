@@ -26,13 +26,20 @@ const api = {
   },
 
   // It will list one user
-  retrieveUser (id) {
-    return apiClient.retrieveUser(storage.getToken(), id)
+  retrieveUser () {
+    return apiClient.retrieveUser(storage.getToken())
   },
 
   // It will update a user, the user will can change the email introducing correctly the username and password
   updateUser (id, email, newEmail, username, password) {
-    return apiClient.updateUser(storage.getToken(), id, email, newEmail, username, password)
+    return apiClient.updateUser(
+      storage.getToken(),
+      id,
+      email,
+      newEmail,
+      username,
+      password
+    )
   },
 
   // It will delete a user by username and password
@@ -47,9 +54,20 @@ const api = {
     return apiClient.list(language)
   },
 
+  // It will list all courses from the selected teacher (the filter is made by the server)
+  listCoursesByTeacher (id) {
+    return apiClient.listCoursesByTeacher(id)
+  },
+
   // It will create a course
   createCourse (title, language, price, teacher) {
-    return apiClient.createCourse(storage.getToken(), title, language, price, teacher)
+    return apiClient.createCourse(
+      storage.getToken(),
+      title,
+      language,
+      price,
+      teacher
+    )
   },
 
   // It will list one course by id

@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
+
 import api from '../../services/api'
+
 import { LANGUAGES } from '../../../config'
+
+import PropTypes from 'prop-types'
+
 export default class ListCourses extends Component {
   constructor () {
     super()
@@ -70,4 +75,8 @@ export default class ListCourses extends Component {
       </div>
     )
   }
+}
+
+ListCourses.propTypes = {
+  match: PropTypes.object.isRequired
 }

@@ -12,14 +12,19 @@ export default class NavBar extends Component {
             <a className='navbar-brand'>DevLearning</a>
           </Link>
           {this.props.logged ? (
-            <Link to='/'>
-              <button
-                className='btn btn-outline-success'
-                onClick={() => this.props.setLogged(false)}
-              >
-                Log Out
-              </button>
-            </Link>
+            <div>
+              <Link to='/user_page'>
+                <button className='btn btn-outline-success'>User Page</button>
+              </Link>
+              <Link to='/'>
+                <button
+                  className='btn btn-outline-success'
+                  onClick={() => this.props.setLogged(false)}
+                >
+                  Log Out
+                </button>
+              </Link>
+            </div>
           ) : (
             <form className='form-inline'>
               <Link to='/login'>

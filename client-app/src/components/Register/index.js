@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 
 import api from '../../services/api'
 
-import RegisterCourse from '../RegisterCourse'
-
 export default class Register extends Component {
   constructor () {
     super()
@@ -15,11 +13,6 @@ export default class Register extends Component {
       password: ''
     }
   }
-
-  //   InputValue = (e) => {
-  //     let prop = e.target.name
-  //     this.setState({ [prop]: e.target.value })
-  // }
 
   keepInputName = e => {
     this.setState({ name: e.target.value })
@@ -116,7 +109,6 @@ export default class Register extends Component {
             </div>
           </div>
         </div>
-        <RegisterCourse />
       </div>
     )
   }

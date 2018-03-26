@@ -27,11 +27,10 @@ const secret = process.env.JWT_SECRET
 
 function jwtValidate(req, res, next) {
     const auth = req.get('authorization')
-
     try {
         const token = auth.split(' ')[1]
-
-        jwt.verify(token, secret)
+        
+        req.tokenDecrypt =  jwt.verify(token, secret)
 
         next()
     } catch(err) {
@@ -49,7 +48,7 @@ router.get('/users', jwtValidate, listUsers)
 
 router.post('/user', jsonBodyParser, createUser)
 
-router.get('/user/:id', jwtValidate, retrieveUser)
+router.get('/user', jwtValidate, retrieveUser)
 
 router.put('/user/:id', [jsonBodyParser, jwtValidate], updateUser)
 
