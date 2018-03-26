@@ -120,15 +120,6 @@ export default class UserPage extends Component {
                   onChange={this.keepInputPrice}
                   value={this.state.price}
                 />
-                <input
-                  type='text'
-                  id='inputTeacher'
-                  className='form-control'
-                  placeholder='Teacher'
-                  required=''
-                  onChange={this.keepInputTeacher}
-                  value={this.state.teacher}
-                />
                 <button
                   className='btn btn-lg btn-primary btn-block'
                   onClick={this.createCourse}

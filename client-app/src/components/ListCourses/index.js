@@ -38,7 +38,7 @@ export default class ListCourses extends Component {
                 <a href='#'>
                   <img
                     src={imageUrl}
-                    className='img-fluid'
+                    className='img-thumbnail'
                     alt='Responsive image'
                   />
                 </a>

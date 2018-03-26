@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 
 import { LANGUAGES } from '../../../config'
 
+import './index.scss'
+
 export default class HeroLinks extends Component {
   render () {
     return (
@@ -10,16 +12,15 @@ export default class HeroLinks extends Component {
         <div className='row'>
           {Object.keys(LANGUAGES).map(languageId => {
             return (
-              <div className='col-md-4'>
-                <div className='p-3'>
-                  <Link to={`/courses/${languageId}`}>
-                    <img
-                      src={LANGUAGES[languageId].imageUrl}
-                      className='img-fluid'
-                      alt='Responsive image'
-                    />
-                  </Link>
-                </div>
+              <div className='col-md-4 HeroLinks-imageContainer'>
+                <Link to={`/courses/${languageId}`}>
+                  <div
+                    className='HeroLinks-image'
+                    style={{
+                      backgroundImage: `url(${LANGUAGES[languageId].imageUrl})`
+                    }}
+                  />
+                </Link>
               </div>
             )
           })}
