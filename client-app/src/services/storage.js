@@ -1,18 +1,20 @@
+const sessionTokenKey = 'token'
+
 const storage = {
 
-  setToken (key, value) {
+  setToken (value) {
     // Set the information and save it in sessionStorage
-    return window.sessionStorage.setItem(key, value)
+    return window.sessionStorage.setItem(sessionTokenKey, value)
   },
 
   getToken () {
     // Get the information saved in sessionStorage
-    return window.sessionStorage.getItem('token')
+    return window.sessionStorage.getItem(sessionTokenKey)
   },
 
   removeToken () {
     // Remove the token which is saved in sessionStorage
-    return window.sessionStorage.removeItem('token')
+    return window.sessionStorage.removeItem(sessionTokenKey)
   }
 
 }

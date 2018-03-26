@@ -40,8 +40,10 @@ export default class LogIn extends Component {
         })
       }
     })
-    this.setState({ username: '' })
-    this.setState({ password: '' })
+    this.setState({
+      username: '',
+      password: ''
+    })
   }
 
   render () {
@@ -86,6 +88,6 @@ export default class LogIn extends Component {
 }
 
 LogIn.propTypes = {
-  setLogged: PropTypes.boolean.isRequired,
-  logged: PropTypes.boolean.isRequired
+  setLogged: PropTypes.func.isRequired,
+  logged: PropTypes.bool.isRequired
 }

@@ -48,10 +48,7 @@ export default class UserPage extends Component {
       this.state.price,
       this.state.teacher
     )
-    this.setState({ title: '' })
-    this.setState({ language: '' })
-    this.setState({ price: '' })
-    this.setState({ teacher: '' })
+    this.setState({ title: '', language: '', price: '', teacher: '' })
   }
 
   keepInputEmail = e => {
@@ -75,10 +72,7 @@ export default class UserPage extends Component {
       this.state.username,
       this.state.password
     )
-    this.setState({ email: '' })
-    this.setState({ newEmail: '' })
-    this.setState({ username: '' })
-    this.setState({ password: '' })
+    this.setState({ email: '', newEmail: '', username: '', password: '' })
   }
 
   showCourses = e => {

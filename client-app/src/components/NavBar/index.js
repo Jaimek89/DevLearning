@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './index.scss'
+import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
 
@@ -9,7 +10,7 @@ export default class NavBar extends Component {
       <div>
         <nav className='navbar navbar-dark bg-dark justify-content-between'>
           <Link to='/'>
-            <a className='navbar-brand'>DevLearning</a>
+            <spam className='navbar-brand'>DevLearning</spam>
           </Link>
           {this.props.logged ? (
             <div>
@@ -39,4 +40,9 @@ export default class NavBar extends Component {
       </div>
     )
   }
+}
+
+NavBar.propTypes = {
+  setLogged: PropTypes.func.isRequired,
+  logged: PropTypes.bool.isRequired
 }

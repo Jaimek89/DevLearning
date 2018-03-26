@@ -33,6 +33,6 @@ export default class Main extends Component {
 }
 
 Main.propTypes = {
-  setLogged: PropTypes.boolean.isRequired,
-  logged: PropTypes.boolean.isRequired
+  setLogged: PropTypes.func.isRequired,
+  logged: PropTypes.bool.isRequired
 }
