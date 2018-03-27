@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import './index.scss'
+
 export default class HeroExplain extends Component {
   render () {
     return (
@@ -15,8 +17,8 @@ export default class HeroExplain extends Component {
           <div className='row'>
             <div className='col-md-4'>
               <img
-                src='https://image.flaticon.com/icons/svg/755/755180.svg'
-                className='img-fluid'
+                src='https://image.flaticon.com/icons/svg/201/201576.svg'
+                className='img-fluid HeroExplain-imageOne'
                 alt='Responsive image'
               />
               <h5 className='display-5'>1. Choose a subject!</h5>

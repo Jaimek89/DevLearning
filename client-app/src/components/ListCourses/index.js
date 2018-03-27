@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import api from '../../services/api'
-
 import { LANGUAGES } from '../../../config'
 
-import PropTypes from 'prop-types'
+import './index.scss'
 
 export default class ListCourses extends Component {
   constructor () {
@@ -34,14 +34,11 @@ export default class ListCourses extends Component {
           <div className='row'>
             <div className='col-sm-2' />
             <div className='col-sm-8'>
-              <div className='p-3'>
-                <a href='#'>
-                  <img
-                    src={imageUrl}
-                    className='img-thumbnail'
-                    alt='Responsive image'
-                  />
-                </a>
+              <div className='p-3 ListCourses-imageContainer'>
+                <div
+                  className='img-thumbnail ListCourses-image'
+                  style={{ backgroundImage: `url(${imageUrl})` }}
+                />
               </div>
               <table className='table'>
                 <thead className='thead-dark'>

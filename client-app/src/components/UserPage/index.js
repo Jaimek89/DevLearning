@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import api from '../../services/api'
 
+import swal from 'sweetalert2/dist/sweetalert2.all.min.js'
+
 export default class UserPage extends Component {
   constructor () {
     super()
@@ -66,12 +68,29 @@ export default class UserPage extends Component {
 
   updateEmail = e => {
     e.preventDefault()
-    api.updateUser(
-      this.state.email,
-      this.state.newEmail,
-      this.state.username,
-      this.state.password
-    )
+    api
+      .updateUser(
+        this.state.teacher,
+        this.state.email,
+        this.state.newEmail,
+        this.state.username,
+        this.state.password
+      )
+      .then(result => {
+        if (result.status === 'OK') {
+          swal({
+            type: 'success',
+            title: 'Success!',
+            text: 'Updated!'
+          })
+        } else {
+          swal({
+            type: 'error',
+            title: 'Oops...',
+            text: result.error
+          })
+        }
+      })
     this.setState({ email: '', newEmail: '', username: '', password: '' })
   }
 
