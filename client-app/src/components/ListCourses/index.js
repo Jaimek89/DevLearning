@@ -27,8 +27,9 @@ export default class ListCourses extends Component {
   }
 
   showEmail = e => {
-    swal('Any fool can use a computer', e.email, 'question').then(res => {
-      window.open(`mailto:${e.email}?subject=DevLearning&body=Hello ${e.name} ${e.surname} I would be interested in arrange a date for your one of your courses`)
+    swal({
+      title: `Send an email to ${e.name}`,
+      html: `<a href='mailto:${e.email}?subject=DevLearning&body=Hello ${e.name} ${e.surname}, I would be interested in arrange a date for one of your courses'>${e.email}</a>`
     })
   }
 
