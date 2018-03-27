@@ -3,7 +3,7 @@ import './index.scss'
 import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
-
+import storage from '../../services/storage'
 export default class NavBar extends Component {
   render () {
     return (
@@ -20,7 +20,10 @@ export default class NavBar extends Component {
               <Link to='/'>
                 <button
                   className='btn btn-outline-warning'
-                  onClick={() => this.props.setLogged(false)}
+                  onClick={() => {
+                    storage.removeToken()
+                    this.props.setLogged(false)
+                  }}
                 >
                   Log Out
                 </button>

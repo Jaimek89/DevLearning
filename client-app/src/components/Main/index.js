@@ -7,6 +7,7 @@ import LogIn from '../LogIn'
 import Register from '../Register'
 import UserPage from '../UserPage'
 import ListCourses from '../ListCourses'
+import storage from '../../services/storage'
 
 export default class Main extends Component {
   render () {
@@ -25,7 +26,10 @@ export default class Main extends Component {
             )}
           />
           <Route path='/register' component={Register} />
-          <Route path='/user_page' component={UserPage} />
+          <Route
+            path='/user_page'
+            render={() => (storage.getToken() ? <UserPage /> : <Home />)}
+          />
         </div>
       </div>
     )

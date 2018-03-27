@@ -101,6 +101,9 @@ const logic = {
     //It will list all courses from the selected language
     listCoursesByLanguage(language) {
         return Course.find({ language })
+            .then(courses=>{
+               return User.populate(courses,{path:'teacher'})
+            })
     },
 
     //It will list all courses from the selected teacher
