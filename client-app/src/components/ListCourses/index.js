@@ -43,10 +43,10 @@ export default class ListCourses extends Component {
               <table className='table'>
                 <thead className='thead-dark'>
                   <tr>
-                    <th scope='col'>Name</th>
-                    <th scope='col'>Surname</th>
-                    <th scope='col'>Ratio (%)</th>
+                    <th scope='col'>Course Title</th>
                     <th scope='col'>Price ($)</th>
+                    <th scope='col'>Score (%)</th>
+                    <th scope='col'>Teacher</th>
                     <th scope='col'>Contact</th>
                   </tr>
                 </thead>
@@ -57,8 +57,13 @@ export default class ListCourses extends Component {
                         <td>{course.title}</td>
                         <td>{course.price}</td>
                         <td>{course.score}</td>
+                        <td />
                         <td>
-                          <a href='#'>+ Info</a>
+                          <a href='#'>
+                            <button className='btn btn-outline-warning'>
+                              Contact
+                            </button>
+                          </a>
                         </td>
                       </tr>
                     )
