@@ -5,6 +5,7 @@ import api from '../../services/api'
 import { LANGUAGES } from '../../../config'
 
 import './index.scss'
+import swal from 'sweetalert2/dist/sweetalert2.all.min.js'
 
 export default class ListCourses extends Component {
   constructor () {
@@ -22,6 +23,12 @@ export default class ListCourses extends Component {
         language: language,
         courses: data.data
       })
+    })
+  }
+
+  showEmail = e => {
+    swal('Any fool can use a computer', e.email, 'question').then(res => {
+      window.open(`mailto:${e.email}?subject=DevLearning&body=Hello ${e.name} ${e.surname} I would be interested in arrange a date for your one of your courses`)
     })
   }
 
@@ -57,13 +64,16 @@ export default class ListCourses extends Component {
                         <td>{course.title}</td>
                         <td>{course.price}</td>
                         <td>{course.score}</td>
-                        <td />
+                        <td>{course.teacher.name}</td>
                         <td>
-                          <a href='#'>
-                            <button className='btn btn-outline-warning'>
-                              Contact
-                            </button>
-                          </a>
+                          <button
+                            className='btn btn-outline-warning'
+                            onClick={() => {
+                              this.showEmail(course.teacher)
+                            }}
+                          >
+                            Contact
+                          </button>
                         </td>
                       </tr>
                     )
