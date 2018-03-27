@@ -15,11 +15,11 @@ export default class NavBar extends Component {
           {this.props.logged ? (
             <div>
               <Link to='/user_page'>
-                <button className='btn btn-outline-success'>User Page</button>
+                <button className='btn btn-outline-warning'>User Page</button>
               </Link>
               <Link to='/'>
                 <button
-                  className='btn btn-outline-success'
+                  className='btn btn-outline-warning'
                   onClick={() => this.props.setLogged(false)}
                 >
                   Log Out
@@ -29,10 +29,10 @@ export default class NavBar extends Component {
           ) : (
             <form className='form-inline'>
               <Link to='/login'>
-                <button className='btn btn-outline-success'>Log In</button>
+                <button className='btn btn-outline-warning'>Log In</button>
               </Link>
               <Link to='/register'>
-                <button className='btn btn-outline-success'>Sign Up</button>
+                <button className='btn btn-outline-warning'>Sign Up</button>
               </Link>
             </form>
           )}

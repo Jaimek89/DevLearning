@@ -15,7 +15,7 @@ export default class HeroExplain extends Component {
             <div className='col-sm-4' />
           </div>
           <div className='row'>
-            <div className='col-md-4'>
+            <div className='col-md-4 HeroExplain'>
               <img
                 src='https://image.flaticon.com/icons/svg/201/201576.svg'
                 className='img-fluid HeroExplain-imageOne'
