@@ -16,17 +16,36 @@ export default class UserPage extends Component {
       newEmail: '',
       username: '',
       password: '',
-      name: ''
+      name: '',
+      courses: []
     }
   }
 
   componentDidMount () {
-    api.retrieveUser().then(data => {
-      this.setState({
-        name: data.data.name,
-        teacher: data.data._id
+    api
+      .retrieveUser()
+      .then(data => {
+        this.setState({
+          name: data.data.name,
+          teacher: data.data._id
+        })
       })
-    })
+      .then(() => {
+        api.listCoursesByTeacher(this.state.teacher).then(data => {
+          this.setState({
+            courses: data.data
+          })
+        })
+      })
+  }
+
+  removeCourse = e => {
+    e.preventDefault()
+    api.removeCourse(
+      this.state.teacher,
+      this.state.username,
+      this.state.password
+    )
   }
 
   keepInputTitle = e => {
@@ -44,12 +63,28 @@ export default class UserPage extends Component {
 
   createCourse = e => {
     e.preventDefault()
-    api.createCourse(
-      this.state.title,
-      this.state.language,
-      this.state.price,
-      this.state.teacher
-    )
+    api
+      .createCourse(
+        this.state.title,
+        this.state.language,
+        this.state.price,
+        this.state.teacher
+      )
+      .then(result => {
+        if (result.status === 'OK') {
+          swal({
+            type: 'success',
+            title: 'Success!',
+            text: 'Course created!'
+          })
+        } else {
+          swal({
+            type: 'error',
+            title: 'Oops...',
+            text: result.error
+          })
+        }
+      })
     this.setState({ title: '', language: '', price: '', teacher: '' })
   }
 
@@ -104,22 +139,29 @@ export default class UserPage extends Component {
       <div className='jumbotron'>
         <div className='container text-center'>
           <h1 className='h1 mb-3 font-weight-normal'>
-            Welcome {this.state.name}
+            Welcome {this.state.name} !
           </h1>
           <hr />
           <div className='row'>
             <div className='col-sm-4'>
               <h1 className='h3 mb-3 font-weight-normal'>Your courses</h1>
-              <button
-                className='btn btn-lg btn-primary btn-block'
-                onClick={this.showCourses}
-              >
-                Show Courses
-              </button>
+              {this.state.courses.map(course => {
+                return (
+                  <div className='input-group'>
+                    <div>{course.title}</div>
+                    <button
+                      className='btn btn-warning btn-block'
+                      onClick={this.removeCourse}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                )
+              })}
             </div>
             <div className='col-sm-4 text-center'>
               <form className='form-signin'>
-                <h1 className='h3 mb-3 font-weight-normal'>Course Register</h1>
+                <h1 className='h3 mb-3 font-weight-normal'>Regist a course</h1>
                 <input
                   type='text'
                   id='inputTitle'
@@ -130,15 +172,18 @@ export default class UserPage extends Component {
                   onChange={this.keepInputTitle}
                   value={this.state.title}
                 />
-                <input
-                  type='text'
-                  id='inputLanguage'
+                <select
                   className='form-control'
-                  placeholder='Language'
+                  id='inputLanguage'
                   required=''
                   onChange={this.keepInputLanguage}
                   value={this.state.language}
-                />
+                >
+                  <option defaultValue>Language</option>
+                  <option value='javascript'>JavaScript</option>
+                  <option value='react'>React.js</option>
+                  <option value='node'>Node.js</option>
+                </select>
                 <input
                   type='text'
                   id='inputPrice'
@@ -149,7 +194,7 @@ export default class UserPage extends Component {
                   value={this.state.price}
                 />
                 <button
-                  className='btn btn-lg btn-primary btn-block'
+                  className='btn btn-lg btn-warning btn-block'
                   onClick={this.createCourse}
                 >
                   Regist a course
@@ -192,7 +237,7 @@ export default class UserPage extends Component {
                   value={this.state.password}
                 />
                 <button
-                  className='btn btn-lg btn-primary btn-block'
+                  className='btn btn-lg btn-warning btn-block'
                   onClick={this.updateEmail}
                 >
                   Update Email

@@ -65,7 +65,7 @@ const api_client = {
 
   // It will list all courses from the selected teacher (the filter is made by the server)
   listCoursesByTeacher (id) {
-    return this._call("get", `courses/${id}`)
+    return this._call("get", `courses/teacher/${id}`)
   },
 
   //It will create a course

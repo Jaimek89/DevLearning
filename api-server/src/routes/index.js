@@ -58,7 +58,7 @@ router.delete('/user/:id', [jsonBodyParser, jwtValidate], deleteUser)
 
 router.get('/courses/:language', listCoursesByLanguage)
 
-router.get('/courses/teacher/:teacher', listCoursesByTeacher)
+router.get('/courses/teacher/:id', listCoursesByTeacher)
 
 router.post('/course', [jsonBodyParser, jwtValidate], createCourse)
 
