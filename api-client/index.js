@@ -79,8 +79,8 @@ const api_client = {
   },
 
   //It will delete a course by id
-  removeCourse(token, id, username, password) {
-    return this._call('delete', `course/${id}`, { username, password }, token)
+  removeCourse(token, id, idOfCourse) {
+    return this._call('delete', `course/${id}`, { idOfCourse }, token)
   }
 }
 

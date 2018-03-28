@@ -76,8 +76,8 @@ const api = {
   },
 
   // It will delete a course by id
-  removeCourse (id, username, password) {
-    return apiClient.removeCourse(storage.getToken(), id, username, password)
+  removeCourse (id, idOfCourse) {
+    return apiClient.removeCourse(storage.getToken(), id, idOfCourse)
   }
 }
 

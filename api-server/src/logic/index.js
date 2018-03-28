@@ -141,18 +141,18 @@ const logic = {
         },
 
         //It will delete a course by id
-        deleteCourse(_id) {
+        deleteCourse(_id, idOfCourse) {
 
             return Promise.resolve()
                 .then(() => {
-                    validate({ _id })
+                    validate({ _id, idOfCourse })
 
-                    return Course.findOne({ _id })
+                    return Course.findOne({ '_id': idOfCourse, 'teacher': _id })
                 })
                 .then(course => {
-                    if (!course) throw Error('course does not exists')
+                    if (!course) throw Error('course does not exist')
 
-                    return Course.deleteOne({ _id })
+                    return Course.deleteOne({ '_id': idOfCourse })
                 })
         }
 }

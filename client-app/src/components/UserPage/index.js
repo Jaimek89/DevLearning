@@ -39,13 +39,28 @@ export default class UserPage extends Component {
       })
   }
 
-  removeCourse = e => {
-    e.preventDefault()
-    api.removeCourse(
-      this.state.teacher,
-      this.state.username,
-      this.state.password
-    )
+  removeCourse = idOfCourse => {
+    api.removeCourse(this.state.teacher, idOfCourse).then(result => {
+      if (result.status === 'OK') {
+        swal({
+          type: 'success',
+          title: 'Success!',
+          text: 'Course deleted!'
+        }).then(() => {
+          api.listCoursesByTeacher(this.state.teacher).then(data => {
+            this.setState({
+              courses: data.data
+            })
+          })
+        })
+      } else {
+        swal({
+          type: 'error',
+          title: 'Oops...',
+          text: result.error
+        })
+      }
+    })
   }
 
   keepInputTitle = e => {
@@ -76,15 +91,17 @@ export default class UserPage extends Component {
             type: 'success',
             title: 'Success!',
             text: 'Course created!'
+          }).then(result => {
+            window.location.reload()
           })
-          const courses = this.state.courses
-          courses.push({
-            title: this.state.title,
-            language: this.state.language,
-            price: this.state.price,
-            teacher: this.state.teacher
-          })
-          this.setState({ courses })
+          // const courses = this.state.courses
+          // courses.push({
+          //   title: this.state.title,
+          //   language: this.state.language,
+          //   price: this.state.price,
+          //   teacher: this.state.teacher
+          // })
+          // this.setState({ courses })
           this.setState({ title: '', language: '', price: '', teacher: '' })
         } else {
           swal({
@@ -151,7 +168,7 @@ export default class UserPage extends Component {
           </h1>
           <hr />
           <div className='row'>
-            <div className='col-sm-4'>
+            <div className='col-md-4'>
               <h1 className='h3 mb-3 font-weight-normal'>Your courses</h1>
               {this.state.courses.map(course => {
                 return (
@@ -161,7 +178,11 @@ export default class UserPage extends Component {
                       {' '}
                       <button
                         className='btn btn-warning btn-block'
-                        onClick={this.removeCourse}
+                        onClick={e => {
+                          e.preventDefault()
+                          this.removeCourse(course._id)
+                        }}
+                        identifier={course._id}
                       >
                         Delete
                       </button>
