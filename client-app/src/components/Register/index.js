@@ -84,7 +84,7 @@ export default class Register extends Component {
                   <h1 className='h3 mb-3 font-weight-normal'>Register</h1>
                   <input
                     type='text'
-                    className='form-control'
+                    className='form-control mb-1'
                     placeholder='Name'
                     required=''
                     autoFocus=''
@@ -93,7 +93,7 @@ export default class Register extends Component {
                   />
                   <input
                     type='text'
-                    className='form-control'
+                    className='form-control mb-1'
                     placeholder='Surname'
                     required=''
                     onChange={this.keepInputSurname}
@@ -101,7 +101,7 @@ export default class Register extends Component {
                   />
                   <input
                     type='email'
-                    className='form-control'
+                    className='form-control mb-1'
                     placeholder='Email address'
                     required=''
                     onChange={this.keepInputEmail}
@@ -109,7 +109,7 @@ export default class Register extends Component {
                   />
                   <input
                     type='text'
-                    className='form-control'
+                    className='form-control mb-1'
                     placeholder='Username'
                     required=''
                     onChange={this.keepInputUsername}
@@ -117,7 +117,7 @@ export default class Register extends Component {
                   />
                   <input
                     type='password'
-                    className='form-control'
+                    className='form-control mb-1'
                     placeholder='Password'
                     required=''
                     onChange={this.keepInputPassword}

@@ -196,7 +196,7 @@ export default class UserPage extends Component {
                 <input
                   type='text'
                   id='inputTitle'
-                  className='form-control'
+                  className='form-control mb-1'
                   placeholder='Title'
                   required=''
                   autoFocus=''
@@ -204,7 +204,7 @@ export default class UserPage extends Component {
                   value={this.state.title}
                 />
                 <select
-                  className='form-control'
+                  className='form-control mb-1'
                   id='inputLanguage'
                   required=''
                   onChange={this.keepInputLanguage}
@@ -218,7 +218,7 @@ export default class UserPage extends Component {
                 <input
                   type='text'
                   id='inputPrice'
-                  className='form-control'
+                  className='form-control mb-1'
                   placeholder='Price'
                   required=''
                   onChange={this.keepInputPrice}
@@ -237,7 +237,7 @@ export default class UserPage extends Component {
                 <h1 className='h3 mb-3 font-weight-normal'>Update Email</h1>
                 <input
                   type='text'
-                  className='form-control'
+                  className='form-control mb-1'
                   placeholder='Current Email'
                   required=''
                   onChange={this.keepInputEmail}
@@ -245,7 +245,7 @@ export default class UserPage extends Component {
                 />
                 <input
                   type='text'
-                  className='form-control'
+                  className='form-control mb-1'
                   placeholder='New Email'
                   required=''
                   onChange={this.keepInputNewEmail}
@@ -253,7 +253,7 @@ export default class UserPage extends Component {
                 />
                 <input
                   type='text'
-                  className='form-control'
+                  className='form-control mb-1'
                   placeholder='Username'
                   required=''
                   onChange={this.keepInputUsername}
@@ -261,7 +261,7 @@ export default class UserPage extends Component {
                 />
                 <input
                   type='password'
-                  className='form-control'
+                  className='form-control mb-1'
                   placeholder='Password'
                   required=''
                   onChange={this.keepInputPassword}

@@ -58,7 +58,7 @@ export default class LogIn extends Component {
                 <input
                   type='text'
                   id='inputUsername'
-                  className='form-control'
+                  className='form-control mb-1'
                   placeholder='Username'
                   required
                   onChange={this.keepInputUsername}
@@ -67,7 +67,7 @@ export default class LogIn extends Component {
                 <input
                   type='password'
                   id='inputPassword'
-                  className='form-control'
+                  className='form-control mb-1'
                   placeholder='Password'
                   required
                   onChange={this.keepInputPassword}

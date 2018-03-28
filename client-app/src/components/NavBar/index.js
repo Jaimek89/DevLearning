@@ -19,7 +19,7 @@ export default class NavBar extends Component {
               </Link>
               <Link to='/'>
                 <button
-                  className='btn btn-outline-warning'
+                  className='btn ml-2 btn-outline-warning'
                   onClick={() => {
                     storage.removeToken()
                     this.props.setLogged(false)
@@ -35,7 +35,7 @@ export default class NavBar extends Component {
                 <button className='btn btn-outline-warning'>Log In</button>
               </Link>
               <Link to='/register'>
-                <button className='btn btn-outline-warning'>Sign Up</button>
+                <button className='btn ml-2 btn-outline-warning'>Sign Up</button>
               </Link>
             </form>
           )}

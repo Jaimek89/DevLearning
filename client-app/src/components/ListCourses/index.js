@@ -17,6 +17,7 @@ export default class ListCourses extends Component {
   }
 
   componentDidMount () {
+    window.scrollTo(0, 0)
     const { language } = this.props.match.params
     api.list(language).then(data => {
       this.setState({

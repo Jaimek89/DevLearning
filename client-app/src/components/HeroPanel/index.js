@@ -9,11 +9,8 @@ export default class HeroPanel extends Component {
           <div className='row'>
             <div className='col-sm-4' />
             <div className='col-sm-4 text-center'>
-              <h5 className='display-5'>Improve your developer skills</h5>
+              <h3 className='display-5'>Improve your developer skills</h3>
               <p>Get 1-on-1 lessons from a master's developer</p>
-              <button type='button' className='btn btn-outline-warning btn-lg'>
-                Share your knowledge
-              </button>
             </div>
             <div className='col-sm-4' />
           </div>
