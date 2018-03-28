@@ -102,13 +102,22 @@ export default class UserPage extends Component {
   render () {
     return (
       <div className='jumbotron'>
-        <div className='container'>
+        <div className='container text-center'>
+          <h1 className='h1 mb-3 font-weight-normal'>
+            Welcome {this.state.name}
+          </h1>
+          <hr />
           <div className='row'>
-            <div className='col-sm-4' />
+            <div className='col-sm-4'>
+              <h1 className='h3 mb-3 font-weight-normal'>Your courses</h1>
+              <button
+                className='btn btn-lg btn-primary btn-block'
+                onClick={this.showCourses}
+              >
+                Show Courses
+              </button>
+            </div>
             <div className='col-sm-4 text-center'>
-              <h1 className='h3 mb-3 font-weight-normal'>
-                Welcome {this.state.name}
-              </h1>
               <form className='form-signin'>
                 <h1 className='h3 mb-3 font-weight-normal'>Course Register</h1>
                 <input
@@ -146,6 +155,8 @@ export default class UserPage extends Component {
                   Regist a course
                 </button>
               </form>
+            </div>
+            <div className='col-sm-4'>
               <form className='form-signin' onSubmit={this.updateEmail}>
                 <h1 className='h3 mb-3 font-weight-normal'>Update Email</h1>
                 <input
@@ -187,14 +198,7 @@ export default class UserPage extends Component {
                   Update Email
                 </button>
               </form>
-              <button
-                className='btn btn-lg btn-primary btn-block'
-                onClick={this.showCourses}
-              >
-                Show Courses
-              </button>
             </div>
-            <div className='col-sm-4' />
           </div>
         </div>
       </div>
