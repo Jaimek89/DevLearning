@@ -12,7 +12,7 @@ export default class HeroLinks extends Component {
         <div className='row'>
           {Object.keys(LANGUAGES).map(languageId => {
             return (
-              <div className='col-md-4 HeroLinks-imageContainer'>
+              <div className='col-md-4 HeroLinks-imageContainer' key={languageId}>
                 <Link to={`/courses/${languageId}`}>
                   <div
                     className='HeroLinks-image'

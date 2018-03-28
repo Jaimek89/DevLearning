@@ -17,7 +17,8 @@ export default class UserPage extends Component {
       username: '',
       password: '',
       name: '',
-      courses: []
+      courses: [],
+      _id: ''
     }
   }
 
@@ -83,7 +84,8 @@ export default class UserPage extends Component {
         this.state.title,
         this.state.language,
         this.state.price,
-        this.state.teacher
+        this.state.teacher,
+        this.state.idOfCourse
       )
       .then(result => {
         if (result.status === 'OK') {
@@ -91,18 +93,17 @@ export default class UserPage extends Component {
             type: 'success',
             title: 'Success!',
             text: 'Course created!'
-          }).then(result => {
-            window.location.reload()
           })
-          // const courses = this.state.courses
-          // courses.push({
-          //   title: this.state.title,
-          //   language: this.state.language,
-          //   price: this.state.price,
-          //   teacher: this.state.teacher
-          // })
-          // this.setState({ courses })
-          this.setState({ title: '', language: '', price: '', teacher: '' })
+          const courses = this.state.courses
+          courses.push({
+            title: this.state.title,
+            language: this.state.language,
+            price: this.state.price,
+            teacher: this.state.teacher,
+            _id: result.data._id
+          })
+          this.setState({ courses })
+          this.setState({ title: '', language: '', price: '', _id: '' })
         } else {
           swal({
             type: 'error',
@@ -172,17 +173,15 @@ export default class UserPage extends Component {
               <h1 className='h3 mb-3 font-weight-normal'>Your courses</h1>
               {this.state.courses.map(course => {
                 return (
-                  <div className='input-group'>
+                  <div className='input-group' key={course._id}>
                     <div className='col mb-2 text-left'>{course.title}</div>
                     <div className='col-sm-4 mb-2'>
                       {' '}
                       <button
                         className='btn btn-warning btn-block'
-                        onClick={e => {
-                          e.preventDefault()
+                        onClick={() => {
                           this.removeCourse(course._id)
                         }}
-                        identifier={course._id}
                       >
                         Delete
                       </button>

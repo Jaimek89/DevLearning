@@ -61,7 +61,7 @@ export default class ListCourses extends Component {
                 <tbody>
                   {this.state.courses.map(course => {
                     return (
-                      <tr>
+                      <tr key={course._id}>
                         <td>{course.title}</td>
                         <td>{course.price}</td>
                         <td>{course.score}</td>

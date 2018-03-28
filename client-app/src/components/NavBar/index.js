@@ -10,7 +10,7 @@ export default class NavBar extends Component {
       <div>
         <nav className='navbar navbar-dark bg-dark justify-content-between'>
           <Link to='/'>
-            <spam className='navbar-brand'>DevLearning</spam>
+            <span className='navbar-brand'>DevLearning</span>
           </Link>
           {this.props.logged ? (
             <div>
