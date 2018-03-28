@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 
 import api from '../../services/api'
 
+import swal from 'sweetalert2/dist/sweetalert2.all.min.js'
+
+import { Redirect } from 'react-router'
+import storage from '../../services/storage'
+import PropTypes from 'prop-types'
+
 export default class Register extends Component {
   constructor () {
     super()
@@ -40,13 +46,30 @@ export default class Register extends Component {
         this.state.username,
         this.state.password
       )
-      .then()
-      .catch()
-    this.setState({ name: '' })
-    this.setState({ surname: '' })
-    this.setState({ email: '' })
-    this.setState({ username: '' })
-    this.setState({ password: '' })
+      .then(result => {
+        if (result.status === 'OK') {
+          swal({
+            type: 'success',
+            title: 'Success!',
+            text: 'Registered!'
+          }).then(() => {
+            api
+              .login(this.state.username, this.state.password)
+              .then(resultLogin => {
+                if (resultLogin.status === 'OK') {
+                  storage.setToken(resultLogin.data.token)
+                  this.props.setLogged(true)
+                }
+              })
+          })
+        } else {
+          swal({
+            type: 'error',
+            title: 'Oops...',
+            text: result.error
+          })
+        }
+      })
   }
 
   render () {
@@ -100,7 +123,7 @@ export default class Register extends Component {
                     onChange={this.keepInputPassword}
                     value={this.state.password}
                   />
-                  <button className='btn btn-lg btn-primary btn-block'>
+                  <button className='btn btn-lg btn-warning btn-block'>
                     Sign Up
                   </button>
                 </form>
@@ -109,7 +132,13 @@ export default class Register extends Component {
             </div>
           </div>
         </div>
+        {this.props.logged ? <Redirect to='/' /> : undefined}
       </div>
     )
   }
+}
+
+Register.propTypes = {
+  setLogged: PropTypes.func.isRequired,
+  logged: PropTypes.bool.isRequired
 }

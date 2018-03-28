@@ -25,7 +25,15 @@ export default class Main extends Component {
               />
             )}
           />
-          <Route path='/register' component={Register} />
+          <Route
+            path='/register'
+            render={() => (
+              <Register
+                setLogged={this.props.setLogged}
+                logged={this.props.logged}
+              />
+            )}
+          />
           <Route
             path='/user_page'
             render={() => (storage.getToken() ? <UserPage /> : <Home />)}

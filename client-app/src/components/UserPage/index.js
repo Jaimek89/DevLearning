@@ -77,6 +77,15 @@ export default class UserPage extends Component {
             title: 'Success!',
             text: 'Course created!'
           })
+          const courses = this.state.courses
+          courses.push({
+            title: this.state.title,
+            language: this.state.language,
+            price: this.state.price,
+            teacher: this.state.teacher
+          })
+          this.setState({ courses })
+          this.setState({ title: '', language: '', price: '', teacher: '' })
         } else {
           swal({
             type: 'error',
@@ -85,7 +94,6 @@ export default class UserPage extends Component {
           })
         }
       })
-    this.setState({ title: '', language: '', price: '', teacher: '' })
   }
 
   keepInputEmail = e => {
@@ -148,13 +156,16 @@ export default class UserPage extends Component {
               {this.state.courses.map(course => {
                 return (
                   <div className='input-group'>
-                    <div>{course.title}</div>
-                    <button
-                      className='btn btn-warning btn-block'
-                      onClick={this.removeCourse}
-                    >
-                      Delete
-                    </button>
+                    <div className='col mb-2 text-left'>{course.title}</div>
+                    <div className='col-sm-4 mb-2'>
+                      {' '}
+                      <button
+                        className='btn btn-warning btn-block'
+                        onClick={this.removeCourse}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
                 )
               })}

@@ -73,7 +73,7 @@ export default class LogIn extends Component {
                   onChange={this.keepInputPassword}
                   value={this.state.password}
                 />
-                <button className='btn btn-lg btn-primary btn-block'>
+                <button className='btn btn-lg btn-warning btn-block'>
                   Log In
                 </button>
               </form>
