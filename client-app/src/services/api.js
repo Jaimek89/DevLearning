@@ -1,9 +1,9 @@
 import storage from './storage'
 
 import apiClient from 'api-client'
-apiClient.port = '5000'
-apiClient.host = 'localhost'
-apiClient.protocol = 'http'
+apiClient.port = ''
+apiClient.host = 'devlearning.herokuapp.com'
+apiClient.protocol = 'https'
 
 const api = {
   /** **********************************LOGIN***********************************/
