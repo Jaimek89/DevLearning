@@ -13,23 +13,36 @@ In 'DevLearning' we get in touch people who need to improve with people who want
 ![Sin titulo](./Images/DataModel.png)
 ***
 
-## Views
+## User Cases
+![Sin titulo](./Images/UserCases.png)
+***
 
+## Block Model
+![Sin titulo](./Images/BlockModel.png)
+***
+
+## Testing
+[DevLearning](http://devlearning.surge.sh)
 ***
 
 ## Planning
-![Sin titulo](./Images/PlanningWeek1.png)
+![Sin titulo](./Images/Planning.png)
 ***
 
 ## Tecnologies
 
 In my project, I will put into practice as many technologies as I have been learning in the Bootcamp as:
 - HTML5
-- CSS
+- SCSS
 - Bootstrap
-- Jasmine
+- Sweet Alert 2
+- Mocha
 - React
 - Node
 - Express
-- MongoDB
 - Mongoose
+- Parcel
+- Git
+- GitHub
+- Heroku
+- Surge
